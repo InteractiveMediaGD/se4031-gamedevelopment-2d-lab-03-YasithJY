@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour
     public int currentHealth;
 
     public TMP_Text healthText;
+    public CameraShake cameraShake;
 
     void Start()
     {
@@ -20,6 +21,9 @@ public class PlayerHealth : MonoBehaviour
         if (currentHealth < 0) currentHealth = 0;
 
         UpdateUI();
+
+        if (cameraShake != null)
+            cameraShake.StartCoroutine(cameraShake.Shake(0.2f, 0.3f));
 
         if (currentHealth == 0)
         {
@@ -37,6 +41,13 @@ public class PlayerHealth : MonoBehaviour
     void UpdateUI()
     {
         healthText.text = "Health: " + currentHealth;
+
+        if (currentHealth > 60)
+            healthText.color = Color.green;
+        else if (currentHealth > 30)
+            healthText.color = Color.yellow;
+        else
+            healthText.color = Color.red;
     }
 
     void OnTriggerEnter2D(Collider2D other)

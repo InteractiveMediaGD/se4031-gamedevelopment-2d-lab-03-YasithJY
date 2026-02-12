@@ -56,5 +56,5 @@
         "temp/": true,
         "Temp/": true
     },
-    "dotnet.defaultSolution": "SE4031_2D_Lab_02.sln"
+    "dotnet.defaultSolution": "SE4031_2D_Lab_03.sln"
 }
